@@ -1,0 +1,11 @@
+.book-list {
+  align-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.book-card {
+  list-style: none;
+  text-align: center;
+  background-color: grey;
+}
