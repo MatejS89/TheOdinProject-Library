@@ -8,9 +8,26 @@
   </head>
   <body>
     <main>
+      <button id="add-button">Add Book</button>
       <div class="book-display">
-        <ul class="book-list">
-        </ul>
+        <ul class="book-list"></ul>
+        <dialog id="add-book-dialog">
+          <form>
+            <h3>Add new book</h3>
+            <label>
+              Title:
+              <input name="title" type="text" />
+            </label>
+            <label>
+              Author:
+              <input name="author" type="text" />
+            </label>
+            <label>Pages:<input type="number" /></label>
+            <label>Have you read this book:<input type="checkbox" /></label>
+            <button id="submit-dialog" type="submit">Add book</button>
+            <button type="reset">Clear</button>
+          </form>
+        </dialog>
       </div>
     </main>
   </body>
