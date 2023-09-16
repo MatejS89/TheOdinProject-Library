@@ -14,6 +14,21 @@ main {
   background-color: #cbebfb;
 }
 
+#add-button {
+  display: block;
+  margin: 0 auto;
+}
+
+#add-book-dialog::backdrop {
+  background-color: rgba(0,0,0,50%);
+}
+
+#add-book-dialog > form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
 .book-display {
   margin: 0 auto;
   max-width: 1000px;
@@ -30,17 +45,17 @@ main {
 }
 
 .book-card {
-  box-shadow: var(--shadow-elevation-medium);
   align-content: center;
   background-color: white;
   border-radius: 10px;
+  box-shadow: var(--shadow-elevation-medium);
   list-style: none;
   text-align: center;
 }
 
 .book-card button {
-  width: 80%;
   border-radius: 7px;
+  width: 80%;
 }
 
 button.not-read {
@@ -48,5 +63,5 @@ button.not-read {
 }
 
 button.read {
-  background-color: #9FFF9C;
+  background-color: #9fff9c;
 }
