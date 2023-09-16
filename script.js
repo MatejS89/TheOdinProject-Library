@@ -12,31 +12,36 @@ function addBookToLibrary(author, title, pages, read) {
 }
 
 function createCard(book) {
-  let card = document.createElement("li");
-  let title = document.createElement("p");
-  title.textContent = `"${book.title}"`;
+  const card = document.createElement("li");
+
+  // Create and set title element
+  const title = document.createElement("p");
+  title.textContent = book.title;
   card.appendChild(title);
-  let author = document.createElement("p");
-  author.textContent = `${book.author}`;
+
+  // Create and set author element
+  const author = document.createElement("p");
+  author.textContent = book.author;
   card.appendChild(author);
-  let pages = document.createElement("p");
+
+  // Create and set pages element
+  const pages = document.createElement("p");
   pages.textContent = `${book.pages} pages`;
   card.appendChild(pages);
-  let readStatus = document.createElement("button");
-  let readButtonPara = document.createElement("p");
+
+  // Create and set readStatus element (button)
+  const readStatus = document.createElement("button");
   readStatus.textContent = book.read ? "Read" : "Not read";
   readStatus.classList.add(book.read ? "read" : "not-read");
-  readButtonPara.appendChild(readStatus);
-  card.appendChild(readButtonPara);
-  
-  let removeButtonPara = document.createElement("p");
-  let removeButton = document.createElement("button");
+  card.appendChild(readStatus);
+
+  // Create and set removeButton element (button)
+  const removeButton = document.createElement("button");
   removeButton.textContent = "Remove";
-  removeButtonPara.appendChild(removeButton);
-  card.appendChild(removeButtonPara);
-  
+  card.appendChild(removeButton);
+
   card.classList.add("book-card");
-  console.log(title);
+
   return card;
 }
 
