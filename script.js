@@ -30,15 +30,19 @@ function createCard(book) {
   card.appendChild(pages);
 
   // Create and set readStatus element (button)
+  const readButtonPara = document.createElement("p");
   const readStatus = document.createElement("button");
   readStatus.textContent = book.read ? "Read" : "Not read";
   readStatus.classList.add(book.read ? "read" : "not-read");
-  card.appendChild(readStatus);
+  readButtonPara.appendChild(readStatus);
+  card.appendChild(readButtonPara);
 
   // Create and set removeButton element (button)
+  const removeButtonPara = document.createElement("p");
   const removeButton = document.createElement("button");
   removeButton.textContent = "Remove";
-  card.appendChild(removeButton);
+  removeButtonPara.appendChild(removeButton);
+  card.appendChild(removeButtonPara);
 
   card.classList.add("book-card");
 
