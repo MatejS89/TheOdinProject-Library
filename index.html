@@ -16,14 +16,21 @@
             <h3>Add new book</h3>
             <label>
               Title:
-              <input name="title" type="text" />
+              <input name="title" id="title-input" type="text" />
             </label>
             <label>
               Author:
-              <input name="author" type="text" />
+              <input name="author" id="author-input" type="text" />
             </label>
-            <label>Pages:<input type="number" /></label>
-            <label>Have you read this book:<input type="checkbox" /></label>
+            <label
+              >Pages:<input name="pages" id="pages-input" type="number"
+            /></label>
+            <label
+              >Have you read this book:<input
+                name="read"
+                id="read-checkbox"
+                type="checkbox"
+            /></label>
             <button id="submit-dialog" type="submit">Add book</button>
             <button type="reset">Clear</button>
           </form>
