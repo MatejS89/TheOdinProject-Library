@@ -10,6 +10,12 @@ addBookButton.addEventListener("click", () => {
 
 submitDialogButton.addEventListener("click", (e) => {
   e.preventDefault();
+  const title = document.getElementById("title-input").value;
+  const author = document.getElementById("author-input").value;
+  const pages = document.getElementById("pages-input").value;
+  const readCheck = document.getElementById("read-checkbox").checked;
+  addBookToLibrary(author,title,pages,readCheck);
+  displayBooks();
   addBookDialog.close();
 });
 
@@ -64,6 +70,7 @@ function createCard(book) {
 
 function displayBooks() {
   const display = document.querySelector(".book-list");
+  display.innerHTML = "";
   myLibrary.forEach((book) => {
     display.appendChild(createCard(book));
   });
