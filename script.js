@@ -1,5 +1,18 @@
 const myLibrary = [];
 
+const addBookButton = document.getElementById("add-button");
+const addBookDialog = document.getElementById("add-book-dialog");
+const submitDialogButton = document.getElementById("submit-dialog");
+
+addBookButton.addEventListener("click", () => {
+  addBookDialog.showModal();
+});
+
+submitDialogButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  addBookDialog.close();
+});
+
 function Book(author, title, pages, read) {
   this.author = author;
   this.title = title;
@@ -16,7 +29,7 @@ function createCard(book) {
 
   // Create and set title element
   const title = document.createElement("p");
-  title.textContent = book.title;
+  title.textContent = `"${book.title}"`;
   card.appendChild(title);
 
   // Create and set author element
@@ -58,6 +71,8 @@ function displayBooks() {
 
 function addBooks() {
   addBookToLibrary("1", "2", 321, false);
+  addBookToLibrary("1", "2", 321, false);
+  addBookToLibrary("1", "2", 321, true);
   addBookToLibrary("1", "2", 321, false);
 }
 
