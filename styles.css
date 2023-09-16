@@ -37,3 +37,16 @@ main {
   list-style: none;
   text-align: center;
 }
+
+.book-card button {
+  width: 80%;
+  border-radius: 7px;
+}
+
+button.not-read {
+  background-color: #ff9c9c;
+}
+
+button.read {
+  background-color: #9FFF9C;
+}
