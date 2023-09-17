@@ -8,15 +8,28 @@
 
 body {
   margin: 0;
+  background-color: #cbebfb;
 }
 
-main {
-  background-color: #cbebfb;
+header {
+  background-color: white;
+}
+
+.header-hero {
+  margin: 0 auto;
+  padding: 30px 0;
+  max-width: 1000px;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 #add-button {
   display: block;
-  margin: 0 auto;
+  margin: 20px auto;
+  padding: 30px 60px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 10px;
 }
 
 #add-book-dialog::backdrop {
@@ -32,7 +45,6 @@ main {
 .book-display {
   margin: 0 auto;
   max-width: 1000px;
-  padding: 20px;
 }
 
 .book-list {
@@ -45,7 +57,6 @@ main {
 }
 
 .book-card {
-  align-content: center;
   background-color: white;
   border-radius: 10px;
   box-shadow: var(--shadow-elevation-medium);
@@ -56,6 +67,11 @@ main {
 .book-card button {
   border-radius: 7px;
   width: 80%;
+}
+
+button:hover {
+  filter: brightness(90%);
+  cursor: pointer;
 }
 
 button.not-read {
