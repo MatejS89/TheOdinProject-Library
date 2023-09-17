@@ -27,6 +27,24 @@ function Book(author, title, pages, read) {
   this.read = read;
 }
 
+function toggleReadStatus(bookID) {
+  const currBook = myLibrary.get(bookID);
+  currBook.read = !currBook.read;
+  myLibrary.set(bookID, currBook);
+}
+
+function updateUI(e, bookID) {
+  const target = e.target;
+  const isRead = myLibrary.get(bookID).read;
+
+  // Toggle CSS classes based on the read status
+  target.classList.toggle("read", isRead);
+  target.classList.toggle("not-read", !isRead);
+
+  // Use a CSS class to control the text content
+  target.textContent = isRead ? "Read" : "Not read";
+}
+
 function addBookToLibrary(author, title, pages, read) {
   myLibrary.set(lastID++, new Book(author, title, pages, read));
 }
@@ -55,6 +73,13 @@ function createCard(book) {
   readStatus.textContent = book.read ? "Read" : "Not read";
   readStatus.classList.add("read-button");
   readStatus.classList.add(book.read ? "read" : "not-read");
+  readStatus.addEventListener("click", (e) => {
+    const bookID = Number(
+      e.target.parentElement.parentElement.getAttribute("data-index")
+    );
+    toggleReadStatus(bookID);
+    updateUI(e, bookID);
+  });
   readButtonPara.appendChild(readStatus);
   card.appendChild(readButtonPara);
 
