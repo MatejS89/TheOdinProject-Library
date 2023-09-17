@@ -7,35 +7,38 @@
     <script defer src="script.js"></script>
   </head>
   <body>
+    <header>
+      <p class="header-hero">library.</p>
+    </header>
     <main>
       <button id="add-button">Add Book</button>
       <div class="book-display">
         <ul class="book-list"></ul>
-        <dialog id="add-book-dialog">
-          <form>
-            <h3>Add new book</h3>
-            <label>
-              Title:
-              <input name="title" id="title-input" type="text" />
-            </label>
-            <label>
-              Author:
-              <input name="author" id="author-input" type="text" />
-            </label>
-            <label
-              >Pages:<input name="pages" id="pages-input" type="number"
-            /></label>
-            <label
-              >Have you read this book:<input
-                name="read"
-                id="read-checkbox"
-                type="checkbox"
-            /></label>
-            <button id="submit-dialog" type="submit">Add book</button>
-            <button type="reset">Clear</button>
-          </form>
-        </dialog>
       </div>
+      <dialog id="add-book-dialog">
+        <form>
+          <h3>Add new book</h3>
+          <label>
+            Title:
+            <input id="title-input" name="title" type="text" />
+          </label>
+          <label>
+            Author:
+            <input id="author-input" name="author" type="text" />
+          </label>
+          <label
+            >Pages:<input id="pages-input" name="pages" type="number"
+          /></label>
+          <label
+            >Have you read this book:<input
+              id="read-checkbox"
+              name="read"
+              type="checkbox"
+          /></label>
+          <button id="submit-dialog" type="submit">Add book</button>
+          <button type="reset">Clear</button>
+        </form>
+      </dialog>
     </main>
   </body>
 </html>
