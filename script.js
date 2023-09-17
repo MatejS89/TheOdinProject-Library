@@ -1,8 +1,9 @@
-const myLibrary = [];
+const myLibrary = new Map();
 
 const addBookButton = document.getElementById("add-button");
 const addBookDialog = document.getElementById("add-book-dialog");
 const submitDialogButton = document.getElementById("submit-dialog");
+let lastID = 0;
 
 addBookButton.addEventListener("click", () => {
   addBookDialog.showModal();
@@ -14,7 +15,7 @@ submitDialogButton.addEventListener("click", (e) => {
   const author = document.getElementById("author-input").value;
   const pages = document.getElementById("pages-input").value;
   const readCheck = document.getElementById("read-checkbox").checked;
-  addBookToLibrary(author,title,pages,readCheck);
+  addBookToLibrary(author, title, pages, readCheck);
   displayBooks();
   addBookDialog.close();
 });
@@ -27,7 +28,7 @@ function Book(author, title, pages, read) {
 }
 
 function addBookToLibrary(author, title, pages, read) {
-  myLibrary.push(new Book(author, title, pages, read));
+  myLibrary.set(lastID++, new Book(author, title, pages, read));
 }
 
 function createCard(book) {
@@ -52,6 +53,7 @@ function createCard(book) {
   const readButtonPara = document.createElement("p");
   const readStatus = document.createElement("button");
   readStatus.textContent = book.read ? "Read" : "Not read";
+  readStatus.classList.add("read-button");
   readStatus.classList.add(book.read ? "read" : "not-read");
   readButtonPara.appendChild(readStatus);
   card.appendChild(readButtonPara);
@@ -60,20 +62,32 @@ function createCard(book) {
   const removeButtonPara = document.createElement("p");
   const removeButton = document.createElement("button");
   removeButton.textContent = "Remove";
+  removeButton.classList.add("remove-button");
+
+  removeButton.addEventListener("click", (e) => {
+    const targetID = Number(
+      e.target.parentElement.parentElement.getAttribute("data-index")
+    );
+    if (myLibrary.has(targetID)) {
+      myLibrary.delete(targetID);
+    }
+    displayBooks();
+  });
   removeButtonPara.appendChild(removeButton);
   card.appendChild(removeButtonPara);
-
   card.classList.add("book-card");
-
   return card;
 }
 
 function displayBooks() {
   const display = document.querySelector(".book-list");
   display.innerHTML = "";
-  myLibrary.forEach((book) => {
-    display.appendChild(createCard(book));
-  });
+  for (const [key, book] of myLibrary) {
+    const card = createCard(book);
+    card.setAttribute("data-index", key);
+    display.appendChild(card);
+  }
+  console.log(myLibrary);
 }
 
 function addBooks() {
